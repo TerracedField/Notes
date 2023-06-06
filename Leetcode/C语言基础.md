@@ -90,7 +90,7 @@ sizeof(double);//数据类型
 size_t strlen(const char *str);
 ```
 
-在使用strlen函数时，需要添加string.h头文件，该函数会将字符串长度计算出，不包含 ‘\0’。
+在使用strlen函数时，需要添加string.h头文件，该函数会将字符串长度计算出，不包含 ‘\0’。 
 
 
 
