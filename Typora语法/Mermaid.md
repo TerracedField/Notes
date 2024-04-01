@@ -6,8 +6,6 @@
 
 + [Mermaid从入门到入土——Markdown进阶语法 - 知乎](https://zhuanlan.zhihu.com/p/355997933)
 
-
-
 ## 实例
 
 ```mermaid
