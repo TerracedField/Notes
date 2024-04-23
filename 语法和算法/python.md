@@ -177,6 +177,35 @@ print(dc)
 {}
 ```
 
+#### 遍历字典
+
+```python
+dict = {
+    '小明':129,
+    '小兰':148,
+    '小红':89
+}
+
+
+for key in dict.keys():
+    print (key)
+ 
+---------------结果---------------------
+小明
+小兰
+小红
+
+
+for value in dict.values():
+    print (value)
+------------------------
+129
+148
+89
+```
+
+
+
 #### 字典排序
 
 ```python
@@ -229,7 +258,7 @@ if __name__=="__main__":
 ```python
 q = collections.deque()
 q.append(1) # 从右边加元素
-q.appendleft(1) # 从右边加元素
+q.appendleft(1) # 从左边加元素
 q.pop() # 从右边弹出元素
 q.popleft() # 从左边弹出元素
 ```
@@ -237,6 +266,50 @@ q.popleft() # 从左边弹出元素
 ### list
 
 [Python3 列表 | 菜鸟教程 (runoob.com)](https://www.runoob.com/python3/python3-list.html#:~:text=Python3 列表 1 访问列表中的值 与字符串的索引一样，列表索引从 0 开始，第二个索引是 1,operator 模块 ）： ... 8 Python列表函数%26方法 Python包含以下函数%3A )
+
+#### sort
+
+[Python List sort()方法 | 菜鸟教程 (runoob.com)](https://www.runoob.com/python/att-list-sort.html)
+
+按第二个sort
+
+```python
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+ 
+# 获取列表的第二个元素
+def takeSecond(elem):
+    return elem[1]
+ 
+# 列表
+random = [(2, 2), (3, 4), (4, 1), (1, 3)]
+ 
+# 指定第二个元素排序
+random.sort(key=takeSecond)
+ 
+# 输出类别
+print('排序列表：')
+print(random)
+```
+
+```
+排序列表：
+[(4, 1), (2, 2), (1, 3), (3, 4)]
+```
+
+
+
+#### 切片
+
+[[Python\]切片完全指南(语法篇) - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/79541418)
+
+##### 翻转list
+
+```python
+ls = ls[::-1]
+```
+
+
 
 #### 初始化list
 

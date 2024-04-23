@@ -236,6 +236,31 @@ if (sLen < pLen) {
 }
 ```
 
+### deque转vector
+
+```c++
+#include <iostream>
+#include <deque>
+#include <vector>
+
+int main() {
+    // 创建一个deque
+    std::deque<int> myDeque = {1, 2, 3, 4, 5};
+
+    // 创建一个vector，并将deque中的元素转移至vector
+    std::vector<int> myVector(myDeque.begin(), myDeque.end());
+
+    // 打印转换后的vector中的元素
+    for (int i : myVector) {
+        std::cout << i << " ";
+    }
+    
+    return 0;
+}
+```
+
+
+
 ## 累加accumulate
 
 ```c++
