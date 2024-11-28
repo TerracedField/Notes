@@ -89,6 +89,22 @@ char* s2  = s1.c_str()
 
 ### string int互转
 
+#### char转int
+
+```C++
+char a = '1';
+int b = a - '0'; // b = 1
+```
+
+#### int转char
+
+```C++
+int a = 1;
+char b = a + '0'; // b = '1';
+```
+
+
+
 #### string ->int
 
 1. 采用最原始的string, 然后按照十进制的特点进行算术运算得到int。
@@ -236,28 +252,7 @@ if (sLen < pLen) {
 }
 ```
 
-### deque转vector
 
-```c++
-#include <iostream>
-#include <deque>
-#include <vector>
-
-int main() {
-    // 创建一个deque
-    std::deque<int> myDeque = {1, 2, 3, 4, 5};
-
-    // 创建一个vector，并将deque中的元素转移至vector
-    std::vector<int> myVector(myDeque.begin(), myDeque.end());
-
-    // 打印转换后的vector中的元素
-    for (int i : myVector) {
-        std::cout << i << " ";
-    }
-    
-    return 0;
-}
-```
 
 
 
@@ -535,7 +530,28 @@ for(auto itr = dq.rbegin();itr != dq.rend();itr++){
 }
 ```
 
+### deque转vector
 
+```c++
+#include <iostream>
+#include <deque>
+#include <vector>
+
+int main() {
+    // 创建一个deque
+    std::deque<int> myDeque = {1, 2, 3, 4, 5};
+
+    // 创建一个vector，并将deque中的元素转移至vector
+    std::vector<int> myVector(myDeque.begin(), myDeque.end());
+
+    // 打印转换后的vector中的元素
+    for (int i : myVector) {
+        std::cout << i << " ";
+    }
+    
+    return 0;
+}
+```
 
 ## 常见find
 
@@ -695,3 +711,36 @@ int main()
 ## 随机数
 
 [C++产生随机数的几种方法_c++随机数生成-CSDN博客](https://blog.csdn.net/onion23/article/details/118558454)
+
+## sort比较
+
+头：algorithm
+
+[C++中sort函数从大到小排序的两种方法_sort从大到小排序-CSDN博客](https://blog.csdn.net/lytwy123/article/details/84503492)
+
+## memset
+
+```C
+memset(p, 0, sizeof(p));
+```
+
+## pow
+
+在cmath里面
+
+## gcd
+
+C++的标准库中提供了gcd
+
+```C++
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    cout<<__gcd(a,b)<<endl;
+}
+```
+

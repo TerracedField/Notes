@@ -52,6 +52,10 @@ class Solution:
 
 ### 从后往前遍历list
 
+[Python - 反向遍历序列(列表、字符串、元组等)的五种方式 - Rocin - 博客园 (cnblogs.com)](https://www.cnblogs.com/allen2333/p/11621201.html)
+
+
+
 ```python
 lists = [0, 1, 2, 3, 4, 5]
 # 输出 5, 4, 3, 2, 1, 0
@@ -155,7 +159,11 @@ Traceback (most recent call last):
 KeyError: 'Facebook'
 ```
 
+#### 集合运算符
 
+`|` 是集合的并集运算符
+
+`^` 是集合的对称差运算符
 
 ### 字典（哈希表）
 
@@ -271,31 +279,9 @@ q.popleft() # 从左边弹出元素
 
 [Python List sort()方法 | 菜鸟教程 (runoob.com)](https://www.runoob.com/python/att-list-sort.html)
 
-按第二个sort
+#### 按第二个sort
 
-```python
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
- 
-# 获取列表的第二个元素
-def takeSecond(elem):
-    return elem[1]
- 
-# 列表
-random = [(2, 2), (3, 4), (4, 1), (1, 3)]
- 
-# 指定第二个元素排序
-random.sort(key=takeSecond)
- 
-# 输出类别
-print('排序列表：')
-print(random)
-```
-
-```
-排序列表：
-[(4, 1), (2, 2), (1, 3), (3, 4)]
-```
+[Python 根据第二个元素（整数值）对元组列表进行排序|极客笔记 (deepinout.com)](https://deepinout.com/python/python-qa/126_python_sort_a_list_of_tuples_by_2nd_item_integer_value.html)
 
 
 
@@ -736,5 +722,52 @@ print(msg.upper())  #upper()函数，将所有字母都转换成大写
 print(msg.lower())  #lower()函数，将所有字母都转换成小写
 print(msg.capitalize())  #capitalize()函数，将首字母都转换成大写，其余小写
 print(msg.title())  #title()函数，将每个单词的首字母都转换成大写，其余小写
+```
+
+## \*解包符号
+
+```python
+def resnet_block(input_channels, num_channels, num_residuals,
+                 first_block=False):
+    blk = []
+    for i in range(num_residuals):
+        if i == 0 and not first_block:
+            blk.append(Residual(input_channels, num_channels,
+                                use_1x1conv=True, strides=2))
+        else:
+            blk.append(Residual(num_channels, num_channels))
+    return blk
+
+
+
+# *是解包符号
+b2 = nn.Sequential(*resnet_block(64, 64, 2, first_block=True))
+b3 = nn.Sequential(*resnet_block(64, 128, 2))
+b4 = nn.Sequential(*resnet_block(128, 256, 2))
+b5 = nn.Sequential(*resnet_block(256, 512, 2))
+```
+
+在Python中，`*`符号在函数调用时用作解包操作符（unpacking operator）。当你看到`*resnet_block(...)`这样的表达式时，它表示将`resnet_block`函数返回的序列（通常是列表或元组）中的元素解包，并将它们作为独立的参数传递给`nn.Sequential`函数。
+
+以你给出的代码为例，`resnet_block`函数可能返回一个包含多个模块的列表，这些模块是构建残差块（ResNet block）所需的。然后，使用`*`操作符将这些模块解包，并将它们作为参数传递给`nn.Sequential`，这样`nn.Sequential`就会按照列表中的顺序将这些模块串联起来。
+
+例如，如果`resnet_block`返回了一个列表`[conv1, conv2, conv3]`，那么`nn.Sequential(*[conv1, conv2, conv3])`就等同于`nn.Sequential(conv1, conv2, conv3)`。
+
+在你的代码中，`b2`、`b3`、`b4`和`b5`是通过调用`resnet_block`函数，并使用`*`操作符将返回的模块列表解包，然后创建了四个`nn.Sequential`对象，每个对象包含一个残差块的不同层级的模块。
+
+## ...的用法
+
+`...` 被用在索引操作中，表示对数组 `x` 和 `target` 进行切片操作时，除了指定的维度外，其他所有维度都将被包含进来。
+
+假设这 `x` 是一个形状为 `(N, C, H, W)` 的四维数组
+
+```python
+dice += dice_coeff(x[:, channel, ...], target[:, channel, ...], ignore_index, epsilon)
+```
+
+等价于：
+
+```python
+dice += dice_coeff(x[:, channel, :, :], target[:, channel, :, :], ignore_index, epsilon)
 ```
 

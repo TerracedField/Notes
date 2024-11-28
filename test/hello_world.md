@@ -1,12 +1,24 @@
-```mermaid
-graph TD
-    A["顾客"] --> |浏览音像产品| B["店员"]
-    A --> |搜索音像产品| B
-    A --> |购买音像产品| B
-    A --> |预定音像产品| B
-    B --> |管理库存| C["供应商"]
-    B --> |处理退货| C
-    C --> |提供产品信息| B
+**高联丽**：lianli.gao@uestc.edu.cn
 
-```
+申恒涛：shenhengtao@hotmail.com
+
+邵杰：shaojie@uestc.edu.cn
+
+**李晶晶**：jjl@uestc.edu.cn
+
+**张马路**： maluzhang@uestc.edu.cn
+
+刘峤：qliu@uestc.edu.cn
+
+段立新：lxduan@uestc.edu.cn
+
+邵俊明：junmshao@uestc.edu.cn
+
+沈复民：fumin.shen@gmail.com
+
+宋井宽：jingkuan.song@gmail.com
+
+李文：liwen@uestc.edu.cn
+
+**顾实**：gus@uestc.edu.cn
 
